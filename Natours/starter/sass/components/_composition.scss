@@ -1,0 +1,38 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
+    position: absolute;
+    z-index: 5;
+    transition: all 0.2s;
+    outline-offset: 2rem; // Moves the outline away from the edge of the element by 2rem, creating space between the element’s border and the outline. This helps to visually separate the outline from the element.
+
+    &--p1 {
+      top: -2rem;
+      left: 0;
+    }
+    &--p2 {
+      top: 2rem;
+      right: 0;
+    }
+
+    &--p3 {
+      top: 10rem;
+      left: 20%;
+    }
+    &:hover {
+      outline: 1.3rem solid $color-primary; // The outline adds an extra border around the element without affecting the layout or size of the container. It appears outside the element's border.
+      transform: scale(1.05) translateY(-0.5rem);
+      // transform: rotate(360deg);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.8);
+      z-index: 10;
+    }
+  }
+
+  // Scales down non-hovered child elements to 95% when the parent is hovered.
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
